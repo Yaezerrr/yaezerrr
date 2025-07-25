@@ -1,0 +1,457 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow-y: auto;
+}
+
+/* Main container */
+.signup-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 1.5rem;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Main content area */
+.signup-main-content {
+  width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.page-title-container {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e1e32;
+}
+
+/* Content section */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section.signup-section {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+}
+
+.section.signup-section:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(135deg, #1d1dff, #0000cc);
+  transition: width 0.3s ease;
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.step-indicator span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.step-indicator span.active {
+  color: #1d1dff;
+  font-weight: 600;
+}
+
+/* Form Section */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.form-section h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e1e32;
+}
+
+.form-section input,
+.form-section select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.form-section input:focus,
+.form-section select:focus {
+  border-color: #1d1dff;
+  outline: none;
+}
+
+.form-section select {
+  background: #fff;
+  color: #1e1e32;
+  cursor: pointer;
+}
+
+.form-section select option {
+  color: #1e1e32;
+}
+
+/* File Input */
+.form-section input[type="file"] {
+  padding: 0.5rem;
+  border: none;
+  font-size: 0.9rem;
+  color: #1e1e32;
+}
+
+.form-section input[type="file"]::-webkit-file-upload-button {
+  background: linear-gradient(135deg, #1d1dff, #0000cc);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-section input[type="file"]::-webkit-file-upload-button:hover {
+  background: linear-gradient(135deg, #0000cc, #000099);
+}
+
+/* Checkbox Container (General) */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #1e1e32;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.checkbox-container label {
+  cursor: pointer;
+}
+
+/* Checkbox Group for Personal Contracts */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+}
+
+.checkbox-group:hover {
+  box-shadow: 0 2px 8px rgba(29, 29, 255, 0.1);
+}
+
+.checkbox-group-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e1e32;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.checkbox-option:hover {
+  background: #e6f3ff;
+}
+
+.checkbox-option input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  accent-color: #1d1dff; /* Custom checkbox color */
+}
+
+.checkbox-option label {
+  font-size: 0.9rem;
+  color: #1e1e32;
+  cursor: pointer;
+  flex: 1; /* Ensures label takes remaining space */
+}
+
+/* Language Selection */
+.language-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.language-selection label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1e1e32;
+}
+
+/* Dropdown */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #1e1e32;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dropdown-button:hover {
+  border-color: #1d1dff;
+  box-shadow: 0 2px 5px rgba(29, 29, 255, 0.2);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 0.25rem;
+}
+
+.dropdown-item {
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  color: #1e1e32;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #e6f3ff;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.back-button,
+.next-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.back-button {
+  background: #6b7280;
+  color: #fff;
+}
+
+.back-button:hover:not(:disabled) {
+  background: #4b5563;
+  transform: translateY(-2px);
+}
+
+.back-button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.next-button {
+  background: linear-gradient(135deg, #1d1dff, #0000cc);
+  color: #fff;
+}
+
+.next-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0000cc, #000099);
+  transform: translateY(-2px);
+}
+
+.next-button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+/* Resend Code Button */
+.resend-code {
+  background: transparent;
+  border: 1px solid #1d1dff;
+  color: #1d1dff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resend-code:hover {
+  background: #1d1dff;
+  color: #fff;
+}
+
+/* Slide Animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-right {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+.slide-left {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .signup-main-content {
+    width: 100%;
+    margin: 0 1rem;
+    padding: 1.5rem;
+  }
+
+  .form-section input,
+  .form-section select,
+  .dropdown-button {
+    font-size: 0.9rem;
+  }
+
+  .checkbox-group {
+    padding: 0.75rem;
+  }
+
+  .checkbox-group-label {
+    font-size: 0.9rem;
+  }
+
+  .checkbox-option {
+    padding: 0.4rem;
+  }
+
+  .checkbox-option input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .checkbox-option label {
+    font-size: 0.85rem;
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .back-button,
+  .next-button {
+    width: 100%;
+  }
+}
