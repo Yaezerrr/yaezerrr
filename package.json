@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://yaezerrr.github.io/yaezerrr/",
+  "homepage": "https://Yaezerrr.github.io/yaezerrr/",
   "dependencies": {
     "react": "^19.1.0",
     "react-calendar": "^6.0.0",
